@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.pavneet_singh.roomdemo.notedb.NoteDatabase;
 import com.example.pavneet_singh.roomdemo.notedb.model.Note;
@@ -44,6 +45,7 @@ public class AddNoteActivity extends AppCompatActivity {
                     note.setTitle(et_title.getText().toString());
                     noteDatabase.getNoteDao().updateNote(note);
                     setResult(note, 2);
+                    Toast.makeText(this, " تم الحفظ بنجاح", Toast.LENGTH_SHORT).show();
                 } else {
                     note = new Note(et_content.getText().toString(), et_title.getText().toString());
                     new InsertTask(AddNoteActivity.this, note).execute();
