@@ -45,7 +45,8 @@ public class AddNoteActivity extends AppCompatActivity {
                     note.setTitle(et_title.getText().toString());
                     noteDatabase.getNoteDao().updateNote(note);
                     setResult(note, 2);
-                    Toast.makeText(this, " تم الحفظ بنجاح", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddNoteActivity.this, "تم الحفظ بنجاح", Toast.LENGTH_SHORT).show();
+
                 } else {
                     note = new Note(et_content.getText().toString(), et_title.getText().toString());
                     new InsertTask(AddNoteActivity.this, note).execute();
